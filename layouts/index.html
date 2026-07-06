@@ -1,0 +1,39 @@
+{{ define "main" }}
+<section>
+    <h1>{{ i18n "welcome" }}</h1>
+</section>
+<section>
+    {{ $projects := .Site.GetPage "/projects" }}
+    {{ if and $projects $projects.Pages}}
+        <h2>{{ i18n "projects" }}</h2>
+        {{ range $projects.Pages }}
+            <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+        {{ end }}
+    {{ else }}
+        <p>{{ i18n "no_projects" }}</p>
+    {{ end }}
+</section>
+
+<section>
+    {{ $posts := .Site.GetPage "/posts" }}
+    {{ if and $posts $posts.Pages }}
+        <h2>{{ i18n "latest_posts" }}</h2>
+        {{ range $posts.Pages }}
+            <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+        {{ end }}
+    {{ else }}
+        <p>{{ i18n "no_posts" }}</p>
+    {{ end }}
+</section>
+
+<section id="about">
+    <h2>{{ i18n "about" }}</h2>
+    {{ .Content }}
+</section>
+
+<section id="contact">
+    <h2>{{ i18n "contact" }}</h2>
+    <span>{{ i18n "email" }} :</span>
+    <a href="mailto:sadiq.m.alaboudi@gmail.com">sadiq.m.alaboudi@gmail.com</a>
+</section>
+{{ end }}

@@ -1,0 +1,14 @@
+<header>
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="menu-icon">☰</label>
+
+    <nav class="nav-menu">
+        <ul class="nav-links">
+            <li><a href="#about">{{ i18n "about" }}</a></li>
+            <li><a href="#contact">{{ i18n "contact" }}</a></li>
+            {{ range .Translations }}
+                <li><a href="{{ .Permalink }}" hreflang="{{ .Lang }}" lang="{{ .Lang }}">{{ .Language.Label }}</a></li>
+            {{ end }}
+        </ul>
+    </nav>
+</header>

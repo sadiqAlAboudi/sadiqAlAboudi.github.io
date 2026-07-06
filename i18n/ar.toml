@@ -1,0 +1,18 @@
+[welcome]
+other = "مرحباً بكم في موقعي الشخصي"
+[projects]
+other = "مشاريعي"
+[latest_posts]
+other = "آخر المنشورات"
+[about]
+other = "عني"
+[contact]
+other = "تواصل معي"
+[email]
+other = "البريد الالكتروني"
+[copy_right]
+other = "جميع الحقوق محفوظة لصادق العبودي"
+[no_projects]
+other = "لم اقم بإضافة مشروع بعد، اسف );"
+[no_posts]
+other = "لم اقم بإضافة منشور بعد، اسف );"
