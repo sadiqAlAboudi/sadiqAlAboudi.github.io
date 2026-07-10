@@ -22,7 +22,8 @@
     {{ $fonts := resources.Get "css/_fonts.css" }}
     {{ $base := resources.Get "css/_base.css" }}
     {{ $home := resources.Get "css/_home.css" }}
-    {{ $bundle := slice $reset $base $home | resources.Concat "css/bundle.css" | resources.Minify | resources.Fingerprint }}
+    {{ $pages := resources.Get "css/_pages.css" }}
+    {{ $bundle := slice $reset $base $home $pages | resources.Concat "css/bundle.css" | resources.Minify | resources.Fingerprint }}
     <link rel="stylesheet" href="{{ $bundle.RelPermalink }}" integrity="{{ $bundle.Data.Integrity }}">
 </head>
 <body>

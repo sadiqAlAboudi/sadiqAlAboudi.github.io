@@ -2,6 +2,7 @@ baseURL: 'sadiqalaboudi.github.io/'
 locale: 'en'
 defaultContentLanguage: 'en'
 title: 'Sadiq Al-Aboudi'
+paginate: 6
 
 languages:
   en:

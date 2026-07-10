@@ -1,0 +1,104 @@
+.breadcrumb-container {
+  margin-bottom: 2rem;
+}
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  align-items: center;
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+  color: var(--text-muted);
+
+  & a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--primary);
+    }
+  }
+
+  & + .breadcrumb-item::before {
+    content: "/";
+    padding-right: 0.5rem;
+    color: rgba(255, 255, 255, 0.15);
+    pointer-events: none;
+  }
+
+  &.active {
+    color: var(--text-color);
+    font-weight: 500;
+    pointer-events: none;
+  }
+}
+
+.list-header {
+  margin-bottom: 2.5rem;
+  
+  & h1 {
+    color: var(--text-color);
+    font-size: 2.25rem;
+  }
+}
+
+.card-summary {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-top: 0.5rem;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 4rem;
+}
+
+.pagination {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 0.5rem;
+}
+
+.page-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  height: 40px;
+  padding: 0 6px;
+  background-color: var(--secondary-bg);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: var(--primary);
+    color: var(--text-on-primary);
+    border-color: var(--primary);
+  }
+}
+
+.page-item.active {
+  & .page-link {
+    background-color: var(--primary);
+    color: var(--text-on-primary);
+    border-color: var(--primary);
+    pointer-events: none;
+  }
+}

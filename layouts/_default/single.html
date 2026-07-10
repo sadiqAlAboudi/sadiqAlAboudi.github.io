@@ -1,4 +1,23 @@
 {{ define "main" }}
+<nav aria-label="breadcrumb" class="breadcrumb-container">
+  <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+    {{ $position := 1 }}
+    {{ range .Ancestors.Reverse }}
+      <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="{{ .Permalink }}" itemprop="item">
+          <span itemprop="name">{{ .Title }}</span>
+        </a>
+        <meta itemprop="position" content="{{ $position }}" />
+      </li>
+      {{ $position = add $position 1 }}
+    {{ end }}
+
+    <li class="breadcrumb-item active" aria-current="page" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <span itemprop="name">{{ .Title }}</span>
+      <meta itemprop="position" content="{{ $position }}" />
+    </li>
+  </ol>
+</nav>
 <h1>{{ .Title }}</h1>
 <article>{{ .Content }}</article>
 {{ end }}
