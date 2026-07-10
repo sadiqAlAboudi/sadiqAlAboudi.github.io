@@ -2,35 +2,42 @@
 <section>
     <h1>{{ i18n "welcome" }}</h1>
 </section>
-<section>
-    {{ $projects := .Site.GetPage "/projects" }}
-    {{ if and $projects $projects.Pages}}
-        <h2>{{ i18n "projects" }}</h2>
-        {{ range $projects.Pages }}
-            <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-        {{ end }}
-    {{ else }}
-        <p>{{ i18n "no_projects" }}</p>
-    {{ end }}
-</section>
-
-<section>
-    {{ $posts := .Site.GetPage "/posts" }}
-    {{ if and $posts $posts.Pages }}
-        <h2>{{ i18n "latest_posts" }}</h2>
-        {{ range $posts.Pages }}
-            <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-        {{ end }}
-    {{ else }}
-        <p>{{ i18n "no_posts" }}</p>
-    {{ end }}
-</section>
-
 <section id="about">
     <h2>{{ i18n "about" }}</h2>
     {{ .Content }}
 </section>
-
+<section class="latest-section">
+    {{ $projects := .Site.GetPage "/projects" }}
+    {{ if and $projects $projects.Pages }}
+        <h2>{{ i18n "latest_projects" }}</h2>
+            <div class="group">
+            {{ range first 3 $projects.Pages }}
+                <article class="card">
+                    <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+                </article>
+            {{ end }}
+            </div>
+        <a class="view-all-btn" href="/projects">{{ i18n "view_all_projects" }}</a>
+    {{ else }}
+        <p>{{ i18n "no_projects" }}</p>
+    {{ end }}
+</section>
+<section class="latest-section">
+    {{ $posts := .Site.GetPage "/posts" }}
+    {{ if and $posts $posts.Pages }}
+        <h2>{{ i18n "latest_posts" }}</h2>
+            <div class="group">
+            {{ range first 3 $posts.Pages }}
+                <article class="card">
+                    <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+                </article>
+            {{ end }}
+            </div>
+        <a class="view-all-btn" href="/posts">{{ i18n "view_all_posts" }}</a>
+    {{ else }}
+        <p>{{ i18n "no_posts" }}</p>
+    {{ end }}
+</section>
 <section id="contact">
     <h2>{{ i18n "contact" }}</h2>
     <span>{{ i18n "email" }} :</span>

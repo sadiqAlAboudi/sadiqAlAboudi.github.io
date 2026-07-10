@@ -1,14 +1,17 @@
 <header>
-    <input type="checkbox" id="menu-toggle" class="menu-toggle">
-    <label for="menu-toggle" class="menu-icon">☰</label>
-
-    <nav class="nav-menu">
-        <ul class="nav-links">
-            <li><a href="#about">{{ i18n "about" }}</a></li>
-            <li><a href="#contact">{{ i18n "contact" }}</a></li>
-            {{ range .Translations }}
-                <li><a href="{{ .Permalink }}" hreflang="{{ .Lang }}" lang="{{ .Lang }}">{{ .Language.Label }}</a></li>
-            {{ end }}
-        </ul>
-    </nav>
+  <img class="logo" src="/image/logo.svg" alt="logo" width="100" height="50" />
+  <nav>
+    <ul>
+      {{ if eq .Language.Lang "en" }}
+      <li><a href="/#contact">{{ i18n "contact" }}</a></li>
+      {{ else }}
+      <li><a href="/ar/#contact">{{ i18n "contact" }}</a></li>
+      {{ end }}
+    </ul>
+  </nav>
+  {{ range .Translations }}
+  <a class="lang-switch" href="{{ .Permalink }}" hreflang="{{ .Lang }}" lang="{{ .Lang }}">
+    {{ .Language.Label }}
+  </a>
+  {{ end }}
 </header>

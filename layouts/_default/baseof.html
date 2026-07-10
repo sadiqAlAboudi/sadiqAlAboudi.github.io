@@ -1,40 +1,29 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.Language.Lang }}" dir="{{ .Site.Language.Direction }}">
 <head>
+    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+
     <meta charset="utf-8" />
-    <title>{{ .Site.Title }}</title>
     <meta name="viewport" content="width=device-width" />
     <meta name="author" content="Sadiq Al-Aboudi">
     <meta name="description" content="{{ .Description }}" />
+    <meta name="color-scheme" content="light dark">
     <meta property="og:title" content="{{ .Title }}" />
-    <meta property="og:description" content="{{ .Description }}" />
-    <meta property="og:image" content="/image/all.png" />
-    <meta property="og:image:alt" content="" />
-    <meta name="twitter:title" content="{{ .Title }}" />
-    <meta name="twitter:description" content="{{ .Description }}" />
-    <meta name="twitter:url" content="?src=twitter" />
-    <meta name="twitter:image:src" content="/image/logo.svg" />
-    <meta name="twitter:image:alt" content="" />
+    <meta property="og:description" content="{{ .Description | default .Site.Params.description }}" />
+    <meta property="og:url" content="{{ .Permalink }}" />
+    <meta property="og:type" content="website" />
+
     <link rel="icon" type="image/svg" href="/image/logo.svg" />
     {{ range .Translations }}
     <link rel="alternate" href="{{ .Permalink }}" hreflang="{{ .Lang }}" />
     {{ end }}
-    <link rel="canonical" href="{{ .Site.BaseURL }}" />
-    <!-- <link rel="manifest" href="/manifest.json" /> -->
-
+    <link rel="canonical" href="{{ .Permalink }}" />
+    {{ $reset := resources.Get "css/_reset.css" }}
+    {{ $fonts := resources.Get "css/_fonts.css" }}
     {{ $base := resources.Get "css/_base.css" }}
-    {{ $index := resources.Get "css/_index.css" }}
-    {{ if .IsHome}}
-        {{ $style := slice $base $index | resources.Concat "css/main.css" | minify | fingerprint }}
-        <style>
-        {{ $style.Content | safeCSS }}
-        </style>
-    {{ else }}
-        {{ $style := $base | minify | fingerprint }}
-        <style>
-        {{ $style.Content | safeCSS }}
-        </style>
-    {{ end }}
+    {{ $home := resources.Get "css/_home.css" }}
+    {{ $bundle := slice $reset $base $home | resources.Concat "css/bundle.css" | resources.Minify | resources.Fingerprint }}
+    <link rel="stylesheet" href="{{ $bundle.RelPermalink }}" integrity="{{ $bundle.Data.Integrity }}">
 </head>
 <body>
     {{ partial "header.html" . }}

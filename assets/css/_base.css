@@ -1,280 +1,98 @@
-/* ==========================================================================
-   1. RESET & CORE VARIABLE SUITE
-   ========================================================================== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 :root {
-  /* Premium Deep Cyber/Dark Palette */
-  --bg-main: #0b0f19;       /* Deep Midnight Space */
-  --bg-surface: #131a2c;    /* Elevated Card Surface */
-  --bg-muted: #1e2942;      /* Embedded Contrast Blocks */
-  
-  --text-primary: #f8fafc;   /* Crisp White/Slate 50 */
-  --text-secondary: #94a3b8; /* Soft Slate 400 */
-  --text-muted: #64748b;     /* Dimmed Slate 500 */
-  
-  /* Cyber Neon Accents */
-  --neon-teal: #06b6d4;      /* Electric Teal / Cyan 500 */
-  --neon-teal-glow: rgba(6, 182, 212, 0.15);
-  --neon-blue: #3b82f6;      /* High-Energy Electric Blue */
-  --border-color: #1e293b;   /* Deep Slate 300 Line */
-  
-  --radius-sm: 6px;
-  --radius-md: 12px;
-  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  --layout-width: 850px;
+  --primary-bg: #0b111e;
+  --secondary-bg: #172237;
+  --primary: #64dfdf;
+  --secondary: #caf0f8;
+  --text-color: #f8f9fa;
+  --text-muted: #94a3b8;
+  --text-on-primary: #0b111e;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans Arabic", sans-serif;
-  background-color: var(--bg-main);
-  color: var(--text-primary);
-  line-height: 1.7;
-  -webkit-font-smoothing: antialiased;
+  font-family: "Cairo", sans-serif;
+  background-color: var(--primary-bg);
+  color: var(--text-color);
+  min-height: 100vh;
+  min-height: 100dvb;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 }
 
-/* ==========================================================================
-   2. TYPOGRAPHY & LINKS
-   ========================================================================== */
-h1, h2, h3 {
-  font-weight: 700;
-  color: #ffffff;
-  letter-spacing: -0.025em;
-  line-height: 1.25;
+main {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 0;
 }
 
-h1 { font-size: 2.5rem; margin-bottom: 1.5rem; }
-h2 { font-size: 1.75rem; margin-bottom: 1.25rem; }
-h3 { font-size: 1.25rem; margin-bottom: 0.75rem; }
-
-a {
-  color: var(--neon-teal);
-  text-decoration: none;
-  transition: var(--transition);
-}
-
-a:hover {
-  color: var(--text-primary);
-  text-shadow: 0 0 8px var(--neon-teal);
-}
-
-/* ==========================================================================
-   3. STRUCTURAL CONTENT CONTAINERS (No Site-Wrapper)
-   ========================================================================== */
-header, 
-section, 
-footer {
-  max-width: var(--layout-width);
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
-
-/* ==========================================================================
-   4. HEADER & RESPONSIVE CYBER NAVIGATION
-   ========================================================================== */
 header {
   display: flex;
+  background-color: var(--secondary-bg);
   justify-content: space-between;
   align-items: center;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid var(--border-color);
-  position: relative;
+  padding: 1rem 5%;
+
+  & img {
+    cursor: pointer;
+    height: auto;
+  }
+
+  & ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 1rem;
+  }
+
+  & li,
+  & a {
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: all 0.3s ease 0s;
+
+    &:hover {
+      color: var(--secondary);
+    }
+  }
 }
 
-.menu-toggle {
-  display: none;
-}
-
-.menu-icon {
-  display: none;
+.lang-switch {
+  padding: 8px 18px;
+  background-color: var(--primary-bg);
+  border: none;
+  border-radius: 50px;
   cursor: pointer;
-  font-size: 1.5rem;
-  color: var(--neon-teal);
-  user-select: none;
-  z-index: 100;
-  transition: var(--transition);
+  transition: all 0.3s ease 0s;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: var(--primary);
+    color: var(--text-on-primary);
+  }
 }
 
-.menu-icon:hover {
-  text-shadow: 0 0 8px var(--neon-teal);
-}
-
-.nav-links {
-  display: flex;
-  list-style: none;
-  gap: 2rem;
-  align-items: center;
-}
-
-.nav-links a {
-  color: var(--text-secondary);
-  font-weight: 500;
-  font-size: 0.95rem;
-  padding: 0.5rem 0;
-  position: relative;
-}
-
-/* Neon Sliding Underline Hover Effect */
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  transform: scaleX(0);
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: var(--neon-teal);
-  box-shadow: 0 0 8px var(--neon-teal);
-  transform-origin: bottom right;
-  transition: transform 0.25s ease-out;
-}
-
-.nav-links a:hover {
-  color: var(--text-primary);
-}
-
-.nav-links a:hover::after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-}
-
-/* Language Link Box Variant Styling */
-.nav-links li:first-child a {
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border-color);
-  color: var(--neon-blue);
-  padding: 0.4rem 0.8rem;
-  border-radius: var(--radius-sm);
-  font-weight: 600;
-}
-
-.nav-links li:first-child a:hover {
-  border-color: var(--neon-blue);
-  color: #ffffff;
-  box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
-}
-
-.nav-links li:first-child a::after {
-  display: none;
-}
-
-/* ==========================================================================
-   5. COMPONENT LAYOUTS & PAGE BLOCKS
-   ========================================================================== */
-section {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-  border-bottom: 1px solid var(--border-color);
-}
-
-section:last-of-type {
-  border-bottom: none;
-}
-
-/* Custom Message Boxes (Empty States) */
-.empty-state {
-  background-color: var(--bg-surface);
-  border: 1px dashed var(--border-color);
-  padding: 2.5rem;
-  border-radius: var(--radius-md);
-  color: var(--text-secondary);
-  text-align: center;
-  font-style: italic;
-}
-
-/* Advanced Glowing Contact Card Component */
-#contact .contact-card {
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  padding: 2rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  transition: var(--transition);
-}
-
-#contact .contact-card:hover {
-  border-color: var(--neon-teal);
-  box-shadow: 0 0 20px var(--neon-teal-glow);
-}
-
-#contact .contact-label {
-  font-weight: 600;
-  color: var(--text-primary);
-}
-
-#contact a {
-  font-weight: 500;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-
-/* ==========================================================================
-   6. FOOTER
-   ========================================================================== */
 footer {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-  border-top: 1px solid var(--border-color);
-  color: var(--text-muted);
-  font-size: 0.875rem;
-  text-align: center;
+  background-color: var(--secondary-bg);
+  padding: 1.5rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* ==========================================================================
-   7. MOBILE RESPONSIVENESS (MEDIA QUERY LAYER)
-   ========================================================================== */
-@media (max-width: 768px) {
-  .menu-icon {
-    display: block;
-  }
+@media (min-width: 768px) {
+  header {
+    padding: 1.5rem 10%;
 
-  .nav-menu {
-    position: absolute;
-    top: 100%;
-    left: 1.5rem;
-    right: 1.5rem;
-    background-color: var(--bg-surface);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
-    padding: 1.5rem;
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: max-height 0.3s ease, opacity 0.2s ease, transform 0.2s ease;
-    z-index: 99;
-  }
+    ul {
+      gap: 2rem;
+    }
 
-  /* Reveal drawer through the checkbox selector mapping */
-  .menu-toggle:checked ~ .nav-menu {
-    max-height: 350px;
-    opacity: 1;
-    transform: translateY(0);
-    border-color: var(--neon-teal);
+    li,
+    a {
+      font-size: 1rem;
+    }
   }
-
-  .nav-links {
-    flex-direction: column;
-    gap: 1.25rem;
-    align-items: stretch;
-    text-align: center;
-  }
-  
-  .nav-links a::after {
-    display: none;
-  }
-  
-  h1 { font-size: 2rem; }
-  h2 { font-size: 1.5rem; }
-  section { padding-top: 3.5rem; padding-bottom: 3.5rem; }
 }

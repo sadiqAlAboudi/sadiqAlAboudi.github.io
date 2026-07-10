@@ -1,0 +1,19 @@
+baseURL: 'sadiqalaboudi.github.io/'
+locale: 'en'
+defaultContentLanguage: 'en'
+title: 'Sadiq Al-Aboudi'
+
+languages:
+  en:
+    label: 'English'
+    direction: 'ltr'
+    weight: 1
+  ar:
+    label: 'العربية'
+    direction: 'rtl'
+    weight: 2
+
+sitemap:
+  changefreq: 'weekly'
+  priority: 0.5
+  filename: 'sitemap.xml'
