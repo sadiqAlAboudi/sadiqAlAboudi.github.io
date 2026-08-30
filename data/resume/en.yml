@@ -22,11 +22,11 @@ experience:
       - "Active member of the Security Operations Center (SOC) team and provide technical support for the Student Information System (SIS)."
 
   - role: "Network & Field Infrastructure Specialist"
-    organization: "SIP Agent"
+    organization: "ISP Agent"
     period: "October 2018 - September 2024"
     team: "Network Operations & Providers"
     highlights:
-      - "Managed and maintained wireless transmission (WSIP) towers and client-side receiver equipment."
+      - "Managed and maintained wireless transmission (WISP) towers and client-side receiver equipment."
       - "Implemented and configured Fiber-to-the-Home (FTTH) network infrastructure on the end-user side."
       - "Troubleshot and resolved field network issues to ensure connection stability and speed."
 
@@ -76,6 +76,6 @@ skills:
     items: ["Linux Server Administration", "Web Performance & Speed Optimization", "CI/CD & Git Automation", "Docker & Platform Management"]
 
   - category: "Networking & Security"
-    items: ["Wireless ISP (WSIP) Towers", "Client-side FTTH Infrastructure", "Internal Service Hosting (Email & Archives)", "SOC Monitoring & Analysis"]
+    items: ["Wireless ISP (WISP) Towers", "Client-side FTTH Infrastructure", "Internal Service Hosting (Email & Archives)", "SOC Monitoring & Analysis"]
 
 note: "Official documentation and administrative orders are available upon request."
