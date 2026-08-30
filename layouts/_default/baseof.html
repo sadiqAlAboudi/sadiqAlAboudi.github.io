@@ -1,23 +1,76 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.Language.Lang }}" dir="{{ .Site.Language.Direction }}">
 <head>
-    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
-
     <meta charset="utf-8" />
+    {{ hugo.Generator }}
     <meta name="viewport" content="width=device-width" />
-    <meta name="author" content="Sadiq Al-Aboudi">
-    <meta name="description" content="{{ .Description }}" />
-    <meta name="color-scheme" content="light dark">
-    <meta property="og:title" content="{{ .Title }}" />
-    <meta property="og:description" content="{{ .Description | default .Site.Params.description }}" />
-    <meta property="og:url" content="{{ .Permalink }}" />
-    <meta property="og:type" content="website" />
 
-    <link rel="icon" type="image/svg" href="/image/logo.svg" />
+    {{ $desc := .Description | default (i18n "site_description") | default .Site.Params.description }}
+    {{ $ogTitle := cond .IsHome (printf "%s | %s" (i18n "title") "Portfolio & Resume") (printf "%s | %s" .Title (i18n "title")) }}
+    {{ $ogLocale := cond (eq .Site.Language.Lang "ar") "ar_IQ" "en_US" }}
+    {{ $ogImage := "/image/og-image.png" | absURL }}
+
+    <title>{{ $ogTitle }}</title>
+    <meta name="title" content="{{ $ogTitle }}" />
+    <meta name="description" content="{{ $desc }}" />
+    <meta name="author" content="Sadiq Al-Aboudi" />
+    <meta name="theme-color" content="#0b111e" />
+    <meta name="color-scheme" content="light dark" />
+
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/svg+xml" href="/image/logo.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <link rel="canonical" href="{{ .Permalink }}" />
     {{ range .Translations }}
     <link rel="alternate" href="{{ .Permalink }}" hreflang="{{ .Lang }}" />
     {{ end }}
-    <link rel="canonical" href="{{ .Permalink }}" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ .Permalink }}" />
+    <meta property="og:title" content="{{ $ogTitle }}" />
+    <meta property="og:description" content="{{ $desc }}" />
+    <meta property="og:image" content="{{ $ogImage }}" />
+    <meta property="og:site_name" content="{{ i18n `title` | default `Sadiq Al-Aboudi` }}" />
+    <meta property="og:locale" content="{{ $ogLocale }}" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="{{ .Permalink }}" />
+    <meta name="twitter:title" content="{{ $ogTitle }}" />
+    <meta name="twitter:description" content="{{ $desc }}" />
+    <meta name="twitter:image" content="{{ $ogImage }}" />
+    <meta name="twitter:site" content="@sadiqalaboudi" />
+    <meta name="twitter:creator" content="@sadiqalaboudi" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "{{ .Site.BaseURL }}#website",
+          "url": "{{ .Site.BaseURL }}",
+          "name": "{{ i18n "title" }}",
+          "description": "{{ $desc }}",
+          "inLanguage": "{{ .Site.Language.Lang }}"
+        },
+        {
+          "@type": "Person",
+          "@id": "{{ .Site.BaseURL }}#person",
+          "name": "Sadiq Al-Aboudi",
+          "url": "{{ .Site.BaseURL }}",
+          "jobTitle": "Web Systems & Network Specialist",
+          "alumniOf": "University of Al-Qadisiyah",
+          "sameAs": [
+            "https://github.com/sadiqalaboudi"
+          ]
+        }
+      ]
+    }
+    </script>
+
     {{ $base := resources.Get "css/_base.css" }}
     {{ $home := resources.Get "css/_home.css" }}
     {{ $bundle := slice $base $home | resources.Concat "css/bundle.css" | resources.Minify | resources.Fingerprint }}
