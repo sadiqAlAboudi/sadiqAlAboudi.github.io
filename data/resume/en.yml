@@ -1,0 +1,18 @@
+experience:
+  - role: "Software / Web Systems Specialist"
+    organization: "University Public Sector"
+    period: "2022 - Present"
+    team: "Central Web & Digital Infrastructure Team"
+    highlights:
+      - "Architected and managed multi-site network infrastructure across university departments."
+      - "Built shared content pipelines and centralized static search indexing."
+
+projects:
+  - name: "Project Name"
+    desc: "Brief description of the tool or architecture."
+    url: "https://github.com/your-user/project"
+    tag: "Open Source"
+
+skills:
+  - category: "Core Technologies"
+    items: ["Go / Hugo", "HTML / Modern CSS", "JavaScript", "CI/CD & Git"]

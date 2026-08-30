@@ -1,46 +1,84 @@
 {{ define "main" }}
-<section>
-    <h1>{{ i18n "welcome" }}</h1>
-</section>
-<section id="about">
-    <h2>{{ i18n "about" }}</h2>
-    {{ .Content }}
-</section>
-<section class="latest-section">
-    {{ $projects := .Site.GetPage "/projects" }}
-    {{ if and $projects $projects.Pages }}
-        <h2>{{ i18n "latest_projects" }}</h2>
-            <div class="group">
-            {{ range first 3 $projects.Pages }}
-                <article class="card">
-                    <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-                </article>
+<div class="resume-wrapper">
+
+    <!-- Header Actions / Print Button -->
+    <div class="actions-bar no-print">
+        <button onclick="window.print()" class="btn-print">
+            🖨️ {{ if eq .Site.Language.Lang "ar" }}طباعة السيرة الذاتية{{ else }}Print Resume (PDF){{ end }}
+        </button>
+    </div>
+
+    <!-- Intro / Bio -->
+    <section id="about" class="resume-section">
+        <h1>{{ i18n "title" }}</h1>
+        <div class="bio-content">
+            {{ .Content }}
+        </div>
+    </section>
+
+    <!-- Resolve Data for Current Language -->
+    {{ $resume := index hugo.Data.resume .Site.Language.Lang }}
+    {{ with $resume }}
+        <!-- Public Sector & Work Experience -->
+        {{ with .experience }}
+        <section id="experience" class="resume-section">
+            <h2>{{ if eq $.Site.Language.Lang "ar" }}الخبرة المهنية والعمل الجامعي{{ else }}Professional Experience & University Work{{ end }}</h2>
+            {{ range . }}
+            <article class="job-item">
+                <div class="job-header">
+                    <h3>{{ .role }} — <span>{{ .organization }}</span></h3>
+                    <span class="job-period">{{ .period }}</span>
+                </div>
+                {{ with .team }}<p class="job-team"><strong>{{ if eq $.Site.Language.Lang "ar" }}الفريق:{{ else }}Team:{{ end }}</strong> {{ . }}</p>{{ end }}
+                <ul>
+                    {{ range .highlights }}
+                    <li>{{ . }}</li>
+                    {{ end }}
+                </ul>
+            </article>
             {{ end }}
+        </section>
+        {{ end }}
+
+        <!-- Projects & Open Source -->
+        {{ with .projects }}
+        <section id="projects" class="resume-section">
+            <h2>{{ if eq $.Site.Language.Lang "ar" }}المشاريع والمساهمات مفتوحة المصدر{{ else }}Projects & Open Source{{ end }}</h2>
+            <div class="project-grid">
+                {{ range . }}
+                <div class="project-card">
+                    <div class="project-title">
+                        <a href="{{ .url }}" target="_blank" rel="noopener">{{ .name }} ↗</a>
+                        {{ with .tag }}<span class="badge">{{ . }}</span>{{ end }}
+                    </div>
+                    <p>{{ .desc }}</p>
+                </div>
+                {{ end }}
             </div>
-        <a href="/projects">{{ i18n "view_all_projects" }}</a>
-    {{ else }}
-        <p>{{ i18n "no_projects" }}</p>
-    {{ end }}
-</section>
-<section class="latest-section">
-    {{ $posts := .Site.GetPage "/posts" }}
-    {{ if and $posts $posts.Pages }}
-        <h2>{{ i18n "latest_posts" }}</h2>
-            <div class="group">
-            {{ range first 3 $posts.Pages }}
-                <article class="card">
-                    <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-                </article>
-            {{ end }}
+        </section>
+        {{ end }}
+
+        <!-- Skills -->
+        {{ with .skills }}
+        <section id="skills" class="resume-section">
+            <h2>{{ if eq $.Site.Language.Lang "ar" }}المهارات التقنية{{ else }}Technical Skills{{ end }}</h2>
+            <div class="skills-list">
+                {{ range . }}
+                <div class="skill-group">
+                    <strong>{{ .category }}:</strong>
+                    <span>{{ delimit .items ", " }}</span>
+                </div>
+                {{ end }}
             </div>
-        <a href="/posts">{{ i18n "view_all_posts" }}</a>
-    {{ else }}
-        <p>{{ i18n "no_posts" }}</p>
+        </section>
+        {{ end }}
+
     {{ end }}
-</section>
-<section id="contact">
-    <h2>{{ i18n "contact" }}</h2>
-    <span>{{ i18n "email" }} :</span>
-    <a href="mailto:sadiq.m.alaboudi@gmail.com">sadiq.m.alaboudi@gmail.com</a>
-</section>
+
+    <!-- Contact Info -->
+    <section id="contact" class="resume-section">
+        <h2>{{ i18n "contact" | default "Contact" }}</h2>
+        <p>Email: <a href="mailto:sadiq.m.alaboudi@gmail.com">sadiq.m.alaboudi@gmail.com</a></p>
+    </section>
+</div>
 {{ end }}

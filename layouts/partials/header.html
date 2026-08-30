@@ -2,16 +2,12 @@
   <img class="logo" src="/image/logo.svg" alt="logo" width="100" height="50" />
   <nav>
     <ul>
-      {{ if eq .Language.Lang "en" }}
-      <li><a href="/#contact">{{ i18n "contact" }}</a></li>
-      {{ else }}
-      <li><a href="/ar/#contact">{{ i18n "contact" }}</a></li>
-      {{ end }}
+      <li><a href="#contact">{{ i18n "contact" }}</a></li>
     </ul>
   </nav>
   {{ range .Translations }}
   <a class="lang-switch" href="{{ .Permalink }}" hreflang="{{ .Lang }}" lang="{{ .Lang }}">
-    {{ .Language.Label }}
+    {{ .Language.Label | default .Lang }}
   </a>
   {{ end }}
 </header>
