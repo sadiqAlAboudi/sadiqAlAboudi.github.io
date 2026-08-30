@@ -35,19 +35,19 @@ projects:
     desc: "Official website for the Department of Quality Assurance and Academic Performance, built with Hugo and Sveltia CMS for high performance and easy content management."
     url: "https://qa.qu.edu.iq"
     repo: "https://github.com/qaduni/qa.qu.edu.iq"
-    tag: "Hugo / Sveltia CMS"
+    tag: "Hugo | Sveltia"
 
   - name: "Department of Scholarships and Cultural Relations Portal"
     desc: "Official website for the Department of Scholarships and Cultural Relations, built with Hugo and Sveltia CMS for high performance and easy content management."
     url: "https://scr.qu.edu.iq"
     repo: "https://github.com/qaduni/scr.qu.edu.iq"
-    tag: "Hugo / Sveltia CMS"
+    tag: "Hugo | Sveltia"
 
   - name: "Electronic Inquiries Platform"
     desc: "Interactive web application for managing and tracking university inquiries built with Go, PocketBase, and HTML/CSS."
     url: "https://inquiries.qu.edu.iq"
     repo: ""
-    tag: "Go / PocketBase"
+    tag: "Go | PocketBase"
 
 contributions:
   - project: "Sveltia CMS"

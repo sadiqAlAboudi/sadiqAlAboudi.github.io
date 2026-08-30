@@ -35,19 +35,19 @@ projects:
     desc: "الموقع الرسمي لقسم ضمان الجودة والاداء الجامعي، تم بناؤه باستخدام Hugo و Sveltia CMS لتحقيق أداء عالي وسهولة في إدارة المحتوى."
     url: "https://qa.qu.edu.iq"
     repo: "https://github.com/qaduni/qa.qu.edu.iq"
-    tag: "Hugo / Sveltia CMS"
+    tag: "Hugo | Sveltia"
 
   - name: "موقع قسم البعثات والعلاقات الثقافية"
     desc: "الموقع الرسمي لقسم البعثات والعلاقات الثقافية، تم بناؤه باستخدام Hugo و Sveltia CMS لتحقيق أداء عالي وسهولة في إدارة المحتوى."
     url: "https://scr.qu.edu.iq"
     repo: "https://github.com/qaduni/scr.qu.edu.iq"
-    tag: "Hugo / Sveltia CMS"
+    tag: "Hugo | Sveltia"
 
   - name: "منصة الاستعلامات الإلكترونية"
     desc: "تطبيق ويب تفاعلي لإدارة ومتابعة استعلامات الجامعة مبني باستخدام Go و PocketBase و HTML/CSS."
     url: "https://inquiries.qu.edu.iq"
     repo: ""
-    tag: "Go / PocketBase"
+    tag: "Go | PocketBase"
 
 contributions:
   - project: "Sveltia CMS"

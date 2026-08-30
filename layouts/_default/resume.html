@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}" dir="{{ .Site.Language.Direction }}">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ i18n "title" }} — {{ i18n "resume_title" }}</title>
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    
+    <style>
+      @font-face {
+        font-family: 'Cairo';
+        src: url('/fonts/Cairo.woff2') format('woff2');
+        font-weight: 400 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: 'Cairo', system-ui, -apple-system, sans-serif;
+        background-color: #f1f5f9;
+        color: #1e293b;
+        line-height: 1.5;
+        padding: 2rem 1rem;
+        -webkit-font-smoothing: antialiased;
+
+        > nav {
+          max-width: 800px;
+          margin: 0 auto 1.5rem auto;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          a, button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            font: inherit;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+          }
+
+          a {
+            background: #fff;
+            color: #334155;
+            border: 1px solid #cbd5e1;
+            &:hover { background: #f8fafc; }
+          }
+
+          button {
+            background: #0f172a;
+            color: #fff;
+            border: 1px solid #0f172a;
+            &:hover { background: #1e293b; }
+          }
+
+          svg {
+            width: 15px;
+            height: 15px;
+            flex-shrink: 0;
+          }
+        }
+
+        > main {
+          max-width: 800px;
+          margin: 0 auto;
+          background: #ffffff;
+          padding: 2.5rem 3rem;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+          border-radius: 4px;
+
+          > header {
+            text-align: center;
+            border-bottom: 1.5px solid #0f172a;
+            padding-bottom: 1.25rem;
+            margin-bottom: 1.25rem;
+
+            h1 {
+              font-size: 2.1rem;
+              font-weight: 700;
+              color: #0f172a;
+              line-height: 1.2;
+              margin-bottom: 0.25rem;
+            }
+
+            p {
+              font-size: 1.05rem;
+              color: #2563eb;
+              font-weight: 600;
+              margin-bottom: 0.75rem;
+            }
+
+            ul {
+              list-style: none;
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: center;
+              align-items: center;
+              gap: 0.6rem 1.2rem;
+              font-size: 0.88rem;
+              color: #475569;
+
+              li {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.4rem;
+
+                a {
+                  display: inline-flex;
+                  align-items: center;
+                  gap: 0.4rem;
+                  color: inherit;
+                  text-decoration: none;
+                  &:hover {
+                    color: #2563eb;
+                    text-decoration: underline;
+                  }
+                }
+
+                svg {
+                  width: 13px;
+                  height: 13px;
+                  flex-shrink: 0;
+                }
+              }
+            }
+          }
+
+          > section {
+            margin-bottom: 1.2rem;
+
+            &:last-of-type {
+              margin-bottom: 0;
+            }
+
+            h2 {
+              font-size: 1.05rem;
+              font-weight: 700;
+              color: #0f172a;
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+              border-bottom: 1px solid #cbd5e1;
+              padding-bottom: 0.25rem;
+              margin-bottom: 0.75rem;
+            }
+
+            article {
+              margin-bottom: 0.85rem;
+
+              &:last-child {
+                margin-bottom: 0;
+              }
+
+              header {
+                display: flex;
+                justify-content: space-between;
+                align-items: baseline;
+                gap: 1rem;
+
+                h3 {
+                  font-size: 0.95rem;
+                  font-weight: 700;
+                  color: #1e293b;
+
+                  a {
+                    color: inherit;
+                    text-decoration: none;
+                    &:hover {
+                      color: #2563eb;
+                      text-decoration: underline;
+                    }
+                  }
+                }
+
+                time, span {
+                  font-size: 0.82rem;
+                  font-weight: 600;
+                  color: #64748b;
+                  white-space: nowrap;
+                }
+
+                em {
+                  font-style: normal;
+                  font-weight: 600;
+                  color: #2563eb;
+                }
+              }
+
+              p {
+                font-size: 0.88rem;
+                color: #475569;
+                margin-top: 0.1rem;
+
+                strong {
+                  color: #0f172a;
+                }
+              }
+
+              ul {
+                margin: 0.25rem 0 0 0;
+                padding-inline-start: 1.25rem;
+                font-size: 0.86rem;
+                color: #334155;
+                line-height: 1.55;
+
+                li {
+                  margin-bottom: 0.2rem;
+                }
+              }
+            }
+
+            dl {
+              display: flex;
+              flex-direction: column;
+              gap: 0.35rem;
+
+              div {
+                display: flex;
+                font-size: 0.86rem;
+                line-height: 1.45;
+
+                dt {
+                  font-weight: 700;
+                  color: #1e293b;
+                  margin-inline-end: 0.35rem;
+                  white-space: nowrap;
+                }
+
+                dd {
+                  color: #475569;
+                }
+              }
+            }
+          }
+
+          > footer {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.78rem;
+            color: #64748b;
+            border-top: 1px dashed #cbd5e1;
+            padding-top: 0.5rem;
+            margin-top: 0.9rem;
+            width: 100%;
+
+            svg {
+              width: 13px;
+              height: 13px;
+              flex-shrink: 0;
+            }
+          }
+        }
+      }
+
+      @media print {
+        @page {
+          margin: 0;
+          size: A4 portrait;
+        }
+
+        html, body {
+          background: #fff !important;
+          color: #000 !important;
+          margin: 0 !important;
+          padding: 0 !important;
+        }
+
+        body {
+          > nav {
+            display: none !important;
+          }
+
+          > main {
+            box-shadow: none !important;
+            padding: 1.4cm 1.4cm 0 1.4cm !important;
+            margin: 0 !important;
+            border-radius: 0 !important;
+            max-width: 100% !important;
+
+            > header {
+              border-bottom-color: #000 !important;
+              padding-bottom: 0.7rem !important;
+              margin-bottom: 0.9rem !important;
+
+              p {
+                color: #000 !important;
+              }
+            }
+
+            > section {
+              break-inside: avoid;
+              page-break-inside: avoid;
+
+              &.break {
+                break-before: page !important;
+                page-break-before: always !important;
+                padding-top: 1.4cm !important;
+              }
+
+              h2 {
+                border-bottom-color: #94a3b8 !important;
+              }
+
+              article {
+                break-inside: avoid;
+                page-break-inside: avoid;
+
+                header em {
+                  color: #000 !important;
+                }
+              }
+            }
+          }
+        }
+
+        a {
+          color: inherit !important;
+          text-decoration: none !important;
+        }
+      }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="{{ if eq .Site.Language.Lang "ar" }}/ar/{{ else }}/{{ end }}">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                {{ if eq .Site.Language.Lang "ar" }}
+                <polyline points="9 18 15 12 9 6"></polyline>
+                {{ else }}
+                <polyline points="15 18 9 12 15 6"></polyline>
+                {{ end }}
+            </svg>
+            <span>{{ i18n "back_to_portfolio" }}</span>
+        </a>
+        <button onclick="window.print()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                <rect x="6" y="14" width="12" height="8"></rect>
+            </svg>
+            <span>{{ i18n "print_save_pdf" }}</span>
+        </button>
+    </nav>
+
+    <main>
+        <header>
+            <h1>{{ i18n "title" }}</h1>
+            <p>{{ i18n "job_title" }}</p>
+            <ul>
+                <li>
+                    <a href="mailto:sadiq.m.alaboudi@gmail.com">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        <span>sadiq.m.alaboudi@gmail.com</span>
+                    </a>
+                </li>
+                <li>•</li>
+                <li>
+                    <a href="https://github.com/sadiqalaboudi" target="_blank" rel="noopener">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                        <span>github.com/sadiqalaboudi</span>
+                    </a>
+                </li>
+                <li>•</li>
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    <span>{{ i18n "location" }}</span>
+                </li>
+            </ul>
+        </header>
+
+        {{ $resume := index hugo.Data.resume .Site.Language.Lang }}
+        {{ with $resume }}
+
+            {{ with .education }}
+            <section id="education">
+                <h2>{{ i18n "education" }}</h2>
+                {{ range . }}
+                <article>
+                    <header>
+                        <h3>{{ .degree }}</h3>
+                        <span>{{ .grade }}</span>
+                    </header>
+                    <p>{{ .institution }} — <strong>{{ .honors }}</strong></p>
+                </article>
+                {{ end }}
+            </section>
+            {{ end }}
+
+            {{ with .experience }}
+            <section id="experience">
+                <h2>{{ i18n "experience" }}</h2>
+                {{ range . }}
+                <article>
+                    <header>
+                        <h3>{{ .role }}</h3>
+                        <time>{{ .period }}</time>
+                    </header>
+                    <p><strong>{{ .organization }}</strong> {{ with .team }}<span>({{ . }})</span>{{ end }}</p>
+                    <ul>
+                        {{ range .highlights }}
+                        <li>{{ . }}</li>
+                        {{ end }}
+                    </ul>
+                </article>
+                {{ end }}
+            </section>
+            {{ end }}
+
+            {{ with .skills }}
+            <section id="skills">
+                <h2>{{ i18n "skills" }}</h2>
+                <dl>
+                    {{ range . }}
+                    <div>
+                        <dt>{{ .category }}:</dt>
+                        <dd>{{ delimit .items " • " }}</dd>
+                    </div>
+                    {{ end }}
+                </dl>
+            </section>
+            {{ end }}
+
+            {{ with .projects }}
+            <section id="projects" class="break">
+                <h2>{{ i18n "projects" }}</h2>
+                {{ range . }}
+                <article>
+                    <header>
+                        <h3><a href="{{ .url }}" target="_blank" rel="noopener">{{ .name }}</a></h3>
+                        {{ with .tag }}<em>{{ . }}</em>{{ end }}
+                    </header>
+                    <p>{{ .desc }}</p>
+                </article>
+                {{ end }}
+            </section>
+            {{ end }}
+
+            {{ with .contributions }}
+            <section id="contributions">
+                <h2>{{ i18n "contributions" }}</h2>
+                {{ range . }}
+                <article>
+                    <header>
+                        <h3><a href="{{ .contribution_url | default .project_url }}" target="_blank" rel="noopener">{{ .project }}</a></h3>
+                        {{ with .tag }}<em>{{ . }}</em>{{ end }}
+                    </header>
+                    <p>{{ .desc }}</p>
+                </article>
+                {{ end }}
+            </section>
+            {{ end }}
+
+            {{ with .note }}
+            <footer>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                <small>{{ . }}</small>
+            </footer>
+            {{ end }}
+
+        {{ end }}
+
+    </main>
+
+    <script>
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                window.print();
+            }, 300);
+        });
+    </script>
+</body>
+</html>
