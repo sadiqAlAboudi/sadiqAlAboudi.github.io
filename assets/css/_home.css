@@ -256,3 +256,61 @@ a {
     color: #000;
   }
 }
+
+.project-card .project-title .links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+
+  .repo-link {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+
+    &:hover {
+      color: var(--primary);
+    }
+  }
+}
+
+.doc-note {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  border-inline-start: 2px solid var(--border-color);
+  padding-inline-start: 0.75rem;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.icon-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.icon {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+.icon-sm {
+  width: 0.85rem;
+  height: 0.85rem;
+  flex-shrink: 0;
+  opacity: 0.8;
+}
+
+.doc-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  border-inline-start: 2px solid var(--border-color);
+  padding-inline-start: 0.75rem;
+}

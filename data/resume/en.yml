@@ -1,18 +1,81 @@
+contact_links:
+  - name: "GitHub"
+    url: "https://github.com/sadiqalaboudi"
+  - name: "Email"
+    url: "mailto:sadiq.m.alaboudi@gmail.com"
+    label: "sadiq.m.alaboudi@gmail.com"
+
+education:
+  - degree: "B.Sc. in Computer Science"
+    institution: "University of Al-Qadisiyah"
+    honors: "Ranked 1st Department-wide (Morning & Evening Studies)"
+    grade: "Grade: 90.4% (Excellence)"
+
 experience:
-  - role: "Software / Web Systems Specialist"
-    organization: "University Public Sector"
-    period: "2022 - Present"
-    team: "Central Web & Digital Infrastructure Team"
+  - role: "Web Systems & Network Specialist"
+    organization: "University of Al-Qadisiyah"
+    period: "September 2024 - Present"
+    team: "Central Web & Infrastructure, SOC Team & SIS Support"
     highlights:
-      - "Architected and managed multi-site network infrastructure across university departments."
-      - "Built shared content pipelines and centralized static search indexing."
+      - "Manage and maintain internal network services including institutional email, digital archive systems, and internal web applications."
+      - "Develop and maintain official university websites and online services with a focus on high performance and maximum speed."
+      - "Active member of the Security Operations Center (SOC) team and provide technical support for the Student Information System (SIS)."
+
+  - role: "Network & Field Infrastructure Specialist"
+    organization: "SIP Agent"
+    period: "October 2018 - September 2024"
+    team: "Network Operations & Providers"
+    highlights:
+      - "Managed and maintained wireless transmission (WSIP) towers and client-side receiver equipment."
+      - "Implemented and configured Fiber-to-the-Home (FTTH) network infrastructure on the end-user side."
+      - "Troubleshot and resolved field network issues to ensure connection stability and speed."
 
 projects:
-  - name: "Project Name"
-    desc: "Brief description of the tool or architecture."
-    url: "https://github.com/your-user/project"
+  - name: "Department of Quality Assurance and Academic Performance Portal"
+    desc: "Official website for the Department of Quality Assurance and Academic Performance, built with Hugo and Sveltia CMS for high performance and easy content management."
+    url: "https://qa.qu.edu.iq"
+    repo: "https://github.com/qaduni/qa.qu.edu.iq"
+    tag: "Hugo / Sveltia CMS"
+
+  - name: "Department of Scholarships and Cultural Relations Portal"
+    desc: "Official website for the Department of Scholarships and Cultural Relations, built with Hugo and Sveltia CMS for high performance and easy content management."
+    url: "https://scr.qu.edu.iq"
+    repo: "https://github.com/qaduni/scr.qu.edu.iq"
+    tag: "Hugo / Sveltia CMS"
+
+  - name: "Electronic Inquiries Platform"
+    desc: "Interactive web application for managing and tracking university inquiries built with Go, PocketBase, and HTML/CSS."
+    url: "https://inquiries.qu.edu.iq"
+    repo: ""
+    tag: "Go / PocketBase"
+
+contributions:
+  - project: "Sveltia CMS"
+    desc: "Translated the open-source Git-based Content Management System into Arabic."
+    project_url: "https://github.com/sveltia/sveltia-cms"
+    contribution_url: "https://github.com/sveltia/sveltia-cms/releases/tag/v0.179.0"
     tag: "Open Source"
 
+  - project: "Dokploy Templates"
+    desc: "Added deployment template for Kan.bn"
+    project_url: "https://github.com/Dokploy/templates"
+    contribution_url: "https://github.com/Dokploy/templates/pull/1098"
+    tag: "Templates"
+
+  - project: "Dokploy Templates"
+    desc: "Added deployment template for GoatCounter"
+    project_url: "https://github.com/Dokploy/templates"
+    contribution_url: "https://github.com/Dokploy/templates/pull/1096"
+    tag: "Templates"
+
 skills:
-  - category: "Core Technologies"
-    items: ["Go / Hugo", "HTML / Modern CSS", "JavaScript", "CI/CD & Git"]
+  - category: "Core & Preferred Stack"
+    items: ["Go", "Hugo", "HTMX", "PocketBase", "HTML", "CSS"]
+
+  - category: "Systems & Infrastructure"
+    items: ["Linux Server Administration", "Web Performance & Speed Optimization", "CI/CD & Git Automation", "Docker & Platform Management"]
+
+  - category: "Networking & Security"
+    items: ["Wireless ISP (WSIP) Towers", "Client-side FTTH Infrastructure", "Internal Service Hosting (Email & Archives)", "SOC Monitoring & Analysis"]
+
+note: "Official documentation and administrative orders are available upon request."

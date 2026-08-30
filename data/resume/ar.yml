@@ -1,18 +1,81 @@
+contact_links:
+  - name: "GitHub"
+    url: "https://github.com/sadiqalaboudi"
+  - name: "البريد الإلكتروني"
+    url: "mailto:sadiq.m.alaboudi@gmail.com"
+    label: "sadiq.m.alaboudi@gmail.com"
+
+education:
+  - degree: "بكالوريوس في علوم الحاسوب"
+    institution: "جامعة القادسية"
+    honors: "المرتبة الأولى على القسم (الدراسة الصباحية والمسائية)"
+    grade: "المعدل: 90.4% (امتياز)"
+
 experience:
-  - role: "أخصائي برمجيات ونظم الويب"
-    organization: "القطاع الجامعي الحكومي"
-    period: "2022 - حتى الآن"
-    team: "فريق الويب والبنية التحتية الرقمية المركزية"
+  - role: "مسؤول النظم والشبكات والمواقع الإلكترونية"
+    organization: "جامعة القادسية"
+    period: "سبتمبر 2024 - حتى الآن"
+    team: "البنية التحتية والويب المركزي، فريق مركز العمليات الأمنية (SOC) وفريق دعم نظام SIS"
     highlights:
-      - "تصميم وإدارة البنية التحتية لشبكة مواقع متعددة عبر الأقسام والتشكيلات الجامعية."
-      - "بناء مسارات متكاملة لمشاركة المحتوى وفهرسة مركزية للبحث الثابت (Static Search)."
+      - "إدارة وتشغيل خدمات الشبكة الداخلية بما في ذلك البريد الإلكتروني الجامعي، ونظام الأرشفة الإلكتروني، والتطبيقات الداخلية."
+      - "تطوير وصيانة مواقع الجامعة الرسمية والخدمات السحابية مع التركيز العالي على الأداء الفائق والسرعة القصوى."
+      - "المشاركة الفعالة في فريق مركز العمليات الأمنية (SOC) وتقديم الدعم الفني المتقدم لنظام معلومات الطلبة (SIS)."
+
+  - role: "مختص شبكات وبنية تحتية ميدانية"
+    organization: "وكيل SIP"
+    period: "أكتوبر 2018 - سبتمبر 2024"
+    team: "عمليات الشبكات والمزودين"
+    highlights:
+      - "إدارة وصيانة أبراج البث اللاسلكي (WSIP) ومعدات الاستقبال لدى العملاء."
+      - "تنفيذ وتهيئة شبكات الألياف الضوئية للمنازل (FTTH) من جهة المستخدم النهائي."
+      - "تشخيص ومعالجة مشكلات الشبكة الميدانية لضمان استقرار وسرعة الاتصال."
 
 projects:
-  - name: "اسم المشروع"
-    desc: "وصف موجز للأداة أو البنية المعمارية للمشروع."
-    url: "https://github.com/your-user/project"
-    tag: "مفتوح المصدر"
+  - name: "موقع قسم ضمان الجودة و الاداء الجامعي"
+    desc: "الموقع الرسمي لقسم ضمان الجودة والاداء الجامعي، تم بناؤه باستخدام Hugo و Sveltia CMS لتحقيق أداء عالي وسهولة في إدارة المحتوى."
+    url: "https://qa.qu.edu.iq"
+    repo: "https://github.com/qaduni/qa.qu.edu.iq"
+    tag: "Hugo / Sveltia CMS"
+
+  - name: "موقع قسم البعثات والعلاقات الثقافية"
+    desc: "الموقع الرسمي لقسم البعثات والعلاقات الثقافية، تم بناؤه باستخدام Hugo و Sveltia CMS لتحقيق أداء عالي وسهولة في إدارة المحتوى."
+    url: "https://scr.qu.edu.iq"
+    repo: "https://github.com/qaduni/scr.qu.edu.iq"
+    tag: "Hugo / Sveltia CMS"
+
+  - name: "منصة الاستعلامات الإلكترونية"
+    desc: "تطبيق ويب تفاعلي لإدارة ومتابعة استعلامات الجامعة مبني باستخدام Go و PocketBase و HTML/CSS."
+    url: "https://inquiries.qu.edu.iq"
+    repo: ""
+    tag: "Go / PocketBase"
+
+contributions:
+  - project: "Sveltia CMS"
+    desc: "ترجمة نظام إدارة المحتوى المفتوح المصدر الى اللغة العربية."
+    project_url: "https://github.com/sveltia/sveltia-cms"
+    contribution_url: "https://github.com/sveltia/sveltia-cms/releases/tag/v0.179.0"
+    tag: "مساهمة برمجية"
+
+  - project: "Dokploy Templates"
+    desc: "إضافة قالب لمنصة Kan.bn"
+    project_url: "https://github.com/Dokploy/templates"
+    contribution_url: "https://github.com/Dokploy/templates/pull/1098"
+    tag: "قوالب"
+
+  - project: "Dokploy Templates"
+    desc: "إضافة قالب GoatCounter"
+    project_url: "https://github.com/Dokploy/templates"
+    contribution_url: "https://github.com/Dokploy/templates/pull/1096"
+    tag: "قوالب"
 
 skills:
-  - category: "التقنيات الأساسية"
-    items: ["Go / Hugo", "HTML / Modern CSS", "JavaScript", "CI/CD & Git"]
+  - category: "التقنيات المفضلة والأساسية"
+    items: ["Go", "Hugo", "HTMX", "PocketBase", "HTML", "CSS"]
+
+  - category: "الأنظمة والبنية السحابية"
+    items: ["إدارة خوادم Linux", "تحسين سرعة وأداء المواقع", "أتمتة النشر CI/CD و Git", "Docker وإدارة المنصات"]
+
+  - category: "الشبكات والأمن السيبراني"
+    items: ["أبراج WSIP اللاسلكية", "بنية FTTH للعملاء", "استضافة الخدمات الداخلية (البريد والأرشفة)", "مراقبة وتحليل SOC"]
+
+note: "الوثائق الرسمية والأوامر الإدارية متاحة عند الطلب."
