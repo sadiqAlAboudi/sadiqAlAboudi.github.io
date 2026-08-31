@@ -1,6 +1,11 @@
+job_title: "Systems, Networks & Web Specialist"
+bio: "Software and Systems Engineer specializing in high-performance backend architectures, Linux server administration, and rock-solid network infrastructure. Obsessed with software efficiency and performance optimization, consistently transforming legacy systems into secure platforms scoring 97+ on Core Web Vitals."
+location: "Al Diwaniyah, Iraq"
+
 contact_links:
   - name: "GitHub"
     url: "https://github.com/sadiqalaboudi"
+    label: "github.com/sadiqalaboudi"
   - name: "Email"
     url: "mailto:sadiq.m.alaboudi@gmail.com"
     label: "sadiq.m.alaboudi@gmail.com"
@@ -10,6 +15,7 @@ education:
     institution: "University of Al-Qadisiyah"
     honors: "Ranked 1st Department-wide (Morning & Evening Studies)"
     grade: "Grade: 90.4% (Excellence)"
+    leadership: "Department Student Representative (Morning Studies) for 3 consecutive academic years; appointed by department leadership as primary liaison between faculty administration and the student body."
 
 experience:
   - role: "Web Systems & Network Specialist"
@@ -17,65 +23,67 @@ experience:
     period: "September 2024 - Present"
     team: "Central Web & Infrastructure, SOC Team & SIS Support"
     highlights:
-      - "Manage and maintain internal network services including institutional email, digital archive systems, and internal web applications."
-      - "Develop and maintain official university websites and online services with a focus on high performance and maximum speed."
-      - "Active member of the Security Operations Center (SOC) team and provide technical support for the Student Information System (SIS)."
+      - "Administer institutional Google Workspace and internal email/archive services across 10,000+ user accounts and 50+ on-premise nodes."
+      - "Re-architected departmental web portals with Hugo and Go, raising mobile Google Lighthouse performance scores from 34 to 97+."
+      - "Eliminated switching loops via Spanning Tree Protocol (STP) and deployed local DNS caching/filtering (CoreDNS, Pi-hole), cutting network incident tickets from ~3/day to <2/quarter."
+      - "Built an internal inquiries platform with Go and PocketBase, configured with hardened security and rate-limiting to reliably serve up to 10,000 concurrent sessions."
+      - "Active member of the Security Operations Center (SOC) team handling monitoring, alert triage, and SIS platform support."
 
   - role: "Network & Field Infrastructure Specialist"
     organization: "ISP Agent"
     period: "October 2018 - September 2024"
     team: "Network Operations & Providers"
     highlights:
-      - "Managed and maintained wireless transmission (WISP) towers and client-side receiver equipment."
-      - "Implemented and configured Fiber-to-the-Home (FTTH) network infrastructure on the end-user side."
-      - "Troubleshot and resolved field network issues to ensure connection stability and speed."
+      - "Managed operations and point-to-multipoint links across 6 WISP transmission towers, helping scale the subscriber base by 190% (from 120 to 350+ clients)."
+      - "Provisioned client-side FTTH infrastructure, optical network terminals (ONTs), and CPEs with link-budget optimization for minimal latency."
+      - "Diagnosed and resolved physical and data-link layer network faults to maintain high service availability."
 
 projects:
   - name: "Department of Quality Assurance and Academic Performance Portal"
-    desc: "Official website for the Department of Quality Assurance and Academic Performance, built with Hugo and Sveltia CMS for high performance and easy content management."
+    desc: "Production department portal built with Hugo and Sveltia CMS; optimized for minimal bundle size and 97+ Mobile Lighthouse performance scores."
     url: "https://qa.qu.edu.iq"
     repo: "https://github.com/qaduni/qa.qu.edu.iq"
     tag: "Hugo | Sveltia"
 
   - name: "Department of Scholarships and Cultural Relations Portal"
-    desc: "Official website for the Department of Scholarships and Cultural Relations, built with Hugo and Sveltia CMS for high performance and easy content management."
+    desc: "Fast, content-managed departmental portal utilizing Hugo static generation and Sveltia CMS for lightweight, secure administrative publishing."
     url: "https://scr.qu.edu.iq"
     repo: "https://github.com/qaduni/scr.qu.edu.iq"
     tag: "Hugo | Sveltia"
 
   - name: "Electronic Inquiries Platform"
-    desc: "Interactive web application for managing and tracking university inquiries built with Go, PocketBase, and HTML/CSS."
+    desc: "Lightweight inquiry management platform engineered with Go and PocketBase, designed for low operational overhead and resilient high-concurrency access."
     url: "https://inquiries.qu.edu.iq"
     repo: ""
     tag: "Go | PocketBase"
 
 contributions:
   - project: "Sveltia CMS"
-    desc: "Translated the open-source Git-based Content Management System into Arabic."
+    desc: "Authored and maintained the official Arabic translation for the open-source Git-based CMS, expanding accessibility across the MENA region."
     project_url: "https://github.com/sveltia/sveltia-cms"
     contribution_url: "https://github.com/sveltia/sveltia-cms/releases/tag/v0.179.0"
     tag: "Open Source"
 
   - project: "Dokploy Templates"
-    desc: "Added deployment template for Kan.bn"
+    desc: "Authored multi-container deployment template for Kan.bn, enabling one-click self-hosted task management."
     project_url: "https://github.com/Dokploy/templates"
     contribution_url: "https://github.com/Dokploy/templates/pull/1098"
     tag: "Templates"
 
   - project: "Dokploy Templates"
-    desc: "Added deployment template for GoatCounter"
+    desc: "Authored deployment template for GoatCounter, enabling streamlined setup of privacy-focused web analytics."
     project_url: "https://github.com/Dokploy/templates"
     contribution_url: "https://github.com/Dokploy/templates/pull/1096"
     tag: "Templates"
 
 skills:
   - category: "Core & Preferred Stack"
-    items: ["Go", "Hugo", "HTMX", "PocketBase", "HTML", "CSS"]
+    items: ["Go", "Hugo", "HTMX", "PocketBase", "HTML5", "CSS3"]
 
   - category: "Systems & Infrastructure"
-    items: ["Linux Server Administration", "Web Performance & Speed Optimization", "CI/CD & Git Automation", "Docker & Platform Management"]
+    items: ["Linux Server Administration", "Core Web Vitals & Performance Optimization", "CI/CD & Git Automation", "Docker & Container Management", "CoreDNS", "Pi-hole"]
 
   - category: "Networking & Security"
-    items: ["Wireless ISP (WISP) Towers", "Client-side FTTH Infrastructure", "Internal Service Hosting (Email & Archives)", "SOC Monitoring & Analysis"]
+    items: ["Spanning Tree Protocol (STP)", "Wireless ISP (WISP) Infrastructure", "FTTH / CPE Provisioning", "Email & Archive Hosting", "SOC Monitoring & Triage"]
 
 note: "Official documentation and administrative orders are available upon request."

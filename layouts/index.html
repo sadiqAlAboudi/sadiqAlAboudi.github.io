@@ -10,16 +10,23 @@
     </a>
 </nav>
 
+{{ $resume := index hugo.Data.resume .Site.Language.Lang }}
+{{ with $resume }}
+
 <section id="about">
     <h1>{{ i18n "title" }}</h1>
+    {{ with .job_title }}
+    <p class="role-subtitle"><strong>{{ . }}</strong></p>
+    {{ end }}
     <div>
-        {{ .Content }}
+        {{ if .bio }}
+        <p>{{ .bio }}</p>
+        {{ else }}
+        {{ $.Content }}
+        {{ end }}
     </div>
 </section>
 
-{{ $resume := index hugo.Data.resume .Site.Language.Lang }}
-{{ with $resume }}
-    
     {{ with .education }}
     <section id="education">
         <h2>{{ i18n "education" }}</h2>
@@ -30,6 +37,9 @@
                 <span>{{ .grade }}</span>
             </header>
             <p><strong>{{ .honors }}</strong></p>
+            {{ with .leadership }}
+            <p>{{ . }}</p>
+            {{ end }}
         </article>
         {{ end }}
     </section>
@@ -124,28 +134,30 @@
     </aside>
     {{ end }}
 
-{{ end }}
+    {{ with .contact_links }}
+    <section id="contact">
+        <h2>{{ i18n "contact" }}</h2>
+        <address>
+            {{ range . }}
+            <p>
+                <a href="{{ .url }}" {{ if not (hasPrefix .url `mailto:`) }}target="_blank" rel="noopener"{{ end }}>
+                    {{ if eq .name "GitHub" }}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                    </svg>
+                    {{ else if or (eq .name "Email") (eq .name "البريد الإلكتروني") }}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    {{ end }}
+                    <span>{{ default .name .label }}</span>
+                </a>
+            </p>
+            {{ end }}
+        </address>
+    </section>
+    {{ end }}
 
-<section id="contact">
-    <h2>{{ i18n "contact" }}</h2>
-    <address>
-        <p>
-            <a href="https://github.com/sadiqalaboudi" target="_blank" rel="noopener">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                </svg>
-                <span>github.com/sadiqalaboudi</span>
-            </a>
-        </p>
-        <p>
-            <a href="mailto:sadiq.m.alaboudi@gmail.com">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                    <polyline points="22,6 12,13 2,6"></polyline>
-                </svg>
-                <span>sadiq.m.alaboudi@gmail.com</span>
-            </a>
-        </p>
-    </address>
-</section>
+{{ end }}
 {{ end }}
