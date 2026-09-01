@@ -1,5 +1,5 @@
 job_title: "Software & Infrastructure Engineer"
-bio: "I'm 26 Software and Infrastructure Engineer, specializing in high-performance backend architectures, Linux server administration, and rock-solid network infrastructure. Obsessed with software efficiency and performance optimization, consistently transforming legacy systems into secure platforms."
+bio: "I'm 26 Software and Infrastructure Engineer, specializing in backend systems, Linux infrastructure, networking, and performance optimization. Experienced in building and operating production systems serving thousands of users, with a focus on reliability, security, and measurable performance."
 location: "Al Diwaniyah, Iraq"
 
 contact_links:
@@ -18,7 +18,7 @@ education:
     leadership: "Department Student Representative (Morning Studies) for 3 consecutive academic years; appointed by department leadership as primary liaison between faculty administration and the student body."
 
 experience:
-  - role: "Web Systems & Network Specialist"
+  - role: "Software & Systems Engineer | Backend, Linux & Infrastructure"
     organization: "University of Al-Qadisiyah"
     period: "September 2024 - Present"
     team: "Member Website Management Committee, Member of the Computer and Intranet Maintenance Division, Member of the SOC Team, Technical Support Officer for the Ministry's SIS System at the University."
@@ -78,13 +78,15 @@ contributions:
     tag: "Templates"
 
 skills:
-  - category: "Core & Preferred Stack"
+  - category: "Backend & Web"
     items: ["Go", "Hugo", "HTMX", "PocketBase", "HTML5", "CSS3"]
-
-  - category: "Systems & Infrastructure"
-    items: ["Linux Server Administration", "Core Web Vitals & Performance Optimization", "CI/CD & Git Automation", "Docker & Container Management", "CoreDNS", "Pi-hole"]
-
-  - category: "Networking & Security"
-    items: ["Spanning Tree Protocol (STP)", "Wireless ISP (WISP) Infrastructure", "FTTH / CPE Provisioning", "Email & Archive Hosting", "SOC Monitoring & Triage"]
+  - category: "Infrastructure"
+    items: ["Linux", "Docker", "CI/CD", "CoreDNS", "Pi-hole"]
+  - category: "Networking"
+    items: ["STP", "WISP", "FTTH", "ONT", "DNS"]
+  - category: "Security & Operations"
+    items: ["SOC Monitoring", "Alert Triage", "Hardening", "Email Infrastructure"]
+  - category: "Performance"
+    items: ["Core Web Vitals", "Lighthouse", "Caching", "Optimization"]
 
 note: "Official documentation and administrative orders are available upon request."
