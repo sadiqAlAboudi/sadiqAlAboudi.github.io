@@ -1,5 +1,5 @@
-job_title: "Systems, Networks & Web Specialist"
-bio: "Software and Systems Engineer specializing in high-performance backend architectures, Linux server administration, and rock-solid network infrastructure. Obsessed with software efficiency and performance optimization, consistently transforming legacy systems into secure platforms scoring 97+ on Core Web Vitals."
+job_title: "Software & Infrastructure Engineer"
+bio: "Software and Infrastructure Engineer specializing in high-performance backend architectures, Linux server administration, and rock-solid network infrastructure. Obsessed with software efficiency and performance optimization, consistently transforming legacy systems into secure platforms."
 location: "Al Diwaniyah, Iraq"
 
 contact_links:
@@ -14,28 +14,29 @@ education:
   - degree: "B.Sc. in Computer Science"
     institution: "University of Al-Qadisiyah"
     honors: "Ranked 1st Department-wide (Morning & Evening Studies)"
-    grade: "Grade: 90.4% (Excellence)"
+    grade: "Grade: 90.5% (Excellence)"
     leadership: "Department Student Representative (Morning Studies) for 3 consecutive academic years; appointed by department leadership as primary liaison between faculty administration and the student body."
 
 experience:
   - role: "Web Systems & Network Specialist"
     organization: "University of Al-Qadisiyah"
     period: "September 2024 - Present"
-    team: "Central Web & Infrastructure, SOC Team & SIS Support"
+    team: "Member Website Management Committee, Member of the Computer and Intranet Maintenance Division, Member of the SOC Team, Technical Support Officer for the Ministry's SIS System at the University."
     highlights:
       - "Administer institutional Google Workspace and internal email/archive services across 10,000+ user accounts and 50+ on-premise nodes."
-      - "Re-architected departmental web portals with Hugo and Go, raising mobile Google Lighthouse performance scores from 34 to 97+."
+      - "Re-architected departmental websites with Hugo and Go, raising mobile Google Lighthouse performance scores from ~34 to 97+."
       - "Eliminated switching loops via Spanning Tree Protocol (STP) and deployed local DNS caching/filtering (CoreDNS, Pi-hole), cutting network incident tickets from ~3/day to <2/quarter."
       - "Built an internal inquiries platform with Go and PocketBase, configured with hardened security and rate-limiting to reliably serve up to 10,000 concurrent sessions."
-      - "Active member of the Security Operations Center (SOC) team handling monitoring, alert triage, and SIS platform support."
+      - "Active member of the Security Operations Center (SOC) team handling monitoring, alert triage."
+      - "Providing tech support for the entire university staff that is working on the SIS system"
 
   - role: "Network & Field Infrastructure Specialist"
     organization: "ISP Agent"
     period: "October 2018 - September 2024"
     team: "Network Operations & Providers"
     highlights:
-      - "Managed operations and point-to-multipoint links across 6 WISP transmission towers, helping scale the subscriber base by 190% (from 120 to 350+ clients)."
-      - "Provisioned client-side FTTH infrastructure, optical network terminals (ONTs), and CPEs with link-budget optimization for minimal latency."
+      - "Managed operations and point-to-multipoint links across 6 WISP transmission towers, helping scale the subscriber base by 190% (from ~120 to 350+ clients)."
+      - "Provisioned client-side FTTH infrastructure, optical network terminals (ONTs)."
       - "Diagnosed and resolved physical and data-link layer network faults to maintain high service availability."
 
 projects:
