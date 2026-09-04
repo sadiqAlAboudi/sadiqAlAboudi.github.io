@@ -57,14 +57,14 @@
 // --- Section Header Macro ---
 #let section-title(title) = {
   v(8pt)
-  text(size: 10.5pt, weight: "bold", fill: rgb("#0f172a"))[#upper(title)]
+  text(size: 10.5pt, weight: "bold", fill: rgb("#0f172a"))[#upper(esc(title))]
   v(-3pt)
   line(length: 100%, stroke: 0.5pt + rgb("#cbd5e1"))
   v(3pt)
 }
 
 {{ with .education }}
-#section-title(#esc({{ i18n "education" | jsonify }}))
+#section-title({{ i18n "education" | jsonify }})
 {{ range . }}
 #block(width: 100%, breakable: false)[
   #grid(
@@ -80,7 +80,7 @@
 {{ end }}
 
 {{ with .experience }}
-#section-title(#esc({{ i18n "experience" | jsonify }}))
+#section-title({{ i18n "experience" | jsonify }})
 {{ range . }}
 #block(width: 100%, breakable: false)[
   #grid(
@@ -98,7 +98,7 @@
 {{ end }}
 
 {{ with .skills }}
-#section-title(#esc({{ i18n "skills" | jsonify }}))
+#section-title({{ i18n "skills" | jsonify }})
 #block(width: 100%, breakable: false)[
   {{ range . }}
   *#esc({{ .category | jsonify }}):* #text(fill: rgb("#475569"))[#esc({{ delimit .items " • " | jsonify }})] \
@@ -107,7 +107,7 @@
 {{ end }}
 
 {{ with .projects }}
-#section-title(#esc({{ i18n "projects" | jsonify }}))
+#section-title({{ i18n "projects" | jsonify }})
 {{ range . }}
 #block(width: 100%, breakable: false)[
   #grid(
@@ -122,7 +122,7 @@
 {{ end }}
 
 {{ with .contributions }}
-#section-title(#esc({{ i18n "contributions" | jsonify }}))
+#section-title({{ i18n "contributions" | jsonify }})
 {{ range . }}
 #block(width: 100%, breakable: false)[
   #grid(
