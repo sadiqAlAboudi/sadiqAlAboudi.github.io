@@ -41,8 +41,23 @@ jobs:
           hugo-version: 'latest'
           extended: true
 
+      - name: Setup Typst
+        uses: typst-community/setup-typst@v3
+
       - name: Build with Hugo
         run: hugo --gc --minify
+
+      - name: Compile Typst to PDF
+        run: |
+          # 1. Compile English PDF
+          if [ -f public/resume.typ ]; then
+            typst compile --font-path fonts public/resume.typ public/resume.pdf
+          fi
+
+          # 2. Compile Arabic PDF
+          if [ -f public/ar/resume.typ ]; then
+            typst compile --font-path fonts public/ar/resume.typ public/ar/resume.pdf
+          fi
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

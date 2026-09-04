@@ -19,3 +19,18 @@ weight = 2
 changefreq = "weekly"
 priority = 0.5
 filename = "sitemap.xml"
+
+# --- Typst Configuration ---
+[mediaTypes."text/typst"]
+suffixes = ["typ"]
+delimiter = "."
+
+[outputFormats.Typst]
+mediaType = "text/typst"
+baseName = "resume"
+isPlainText = true
+notAlternative = true
+
+[outputs]
+home = ["html", "Typst"]
+page = ["html"]
