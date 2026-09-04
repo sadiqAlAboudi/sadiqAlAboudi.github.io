@@ -8,7 +8,7 @@
 )
 
 #set text(
-  font: ("Cairo", "Liberation Sans", "sans-serif"),
+  font: ("Cairo", "Liberation Sans"),
   size: 9.5pt,
   lang: "{{ $lang }}",
   dir: {{ if eq $dir "rtl" }}rtl{{ else }}ltr{{ end }},
@@ -17,17 +17,18 @@
 
 #set par(justify: false, leading: 0.65em)
 
-#let esc(raw-json) = {
-  let val = json.decode(raw-json)
-  if type(val) == str {
-    val.replace("<", "\<")
-       .replace(">", "\>")
-       .replace("@", "\@")
-       .replace("$", "\$")
-       .replace("#", "\#")
-  } else {
-    val
-  }
+// Helper: Fixes Hugo's JSON unicode escapes (e.g. \u0026 -> &) and escapes Typst markup triggers
+#let esc(s) = if type(s) == str {
+  s.replace("\u0026", "&")
+   .replace("\u003c", "<")
+   .replace("\u003e", ">")
+   .replace("<", "\<")
+   .replace(">", "\>")
+   .replace("@", "\@")
+   .replace("$", "\$")
+   .replace("#", "\#")
+} else {
+  s
 }
 
 // --- Header ---
@@ -39,7 +40,7 @@
   #text(size: 8.5pt, fill: rgb("#475569"))[
     {{- range $i, $c := .contact_links -}}
       {{- if $i }} #text(fill: rgb("#94a3b8"))[•] {{ end -}}
-      #link(json.decode({{ $c.url | jsonify }}))[#esc({{ default $c.name $c.label | jsonify }})]
+      #link({{ $c.url | jsonify }})[#esc({{ default $c.name $c.label | jsonify }})]
     {{- end }}
     #text(fill: rgb("#94a3b8"))[•] #esc({{ default (i18n "location") .location | jsonify }})
   ]
@@ -57,9 +58,9 @@
 {{ end }}
 
 // --- Section Header Macro ---
-#let section-title(raw-json) = {
+#let section-title(title) = {
   v(8pt)
-  text(size: 10.5pt, weight: "bold", fill: rgb("#0f172a"))[#upper(esc(raw-json))]
+  text(size: 10.5pt, weight: "bold", fill: rgb("#0f172a"))[#upper(esc(title))]
   v(-3pt)
   line(length: 100%, stroke: 0.5pt + rgb("#cbd5e1"))
   v(3pt)
@@ -114,7 +115,7 @@
 #block(width: 100%, breakable: false)[
   #grid(
     columns: (1fr, auto),
-    [*#link(json.decode({{ .url | jsonify }}))[#esc({{ .name | jsonify }})]*],
+    [*#link({{ .url | jsonify }})[#esc({{ .name | jsonify }})]*],
     [{{ with .tag }}#text(fill: rgb("#2563eb"), weight: "bold", size: 8.2pt)[#esc({{ . | jsonify }})]{{ end }}]
   )
   #text(size: 8.8pt, fill: rgb("#475569"))[#esc({{ .desc | jsonify }})]
@@ -129,7 +130,7 @@
 #block(width: 100%, breakable: false)[
   #grid(
     columns: (1fr, auto),
-    [*#link(json.decode({{ .contribution_url | default .project_url | jsonify }}))[#esc({{ .project | jsonify }})]*],
+    [*#link({{ .contribution_url | default .project_url | jsonify }})[#esc({{ .project | jsonify }})]*],
     [{{ with .tag }}#text(fill: rgb("#2563eb"), weight: "bold", size: 8.2pt)[#esc({{ . | jsonify }})]{{ end }}]
   )
   #text(size: 8.8pt, fill: rgb("#475569"))[#esc({{ .desc | jsonify }})]
