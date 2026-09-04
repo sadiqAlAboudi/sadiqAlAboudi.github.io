@@ -17,18 +17,29 @@
 
 #set par(justify: false, leading: 0.65em)
 
+// Helper: Safely renders arbitrary text strings without triggering Typst markup
+#let esc(s) = if type(s) == str {
+  s.replace("<", "\<")
+   .replace(">", "\>")
+   .replace("@", "\@")
+   .replace("$", "\$")
+   .replace("#", "\#")
+} else {
+  s
+}
+
 // --- Header ---
 #align(center)[
-  #text(size: 18pt, weight: "bold", fill: rgb("#0f172a"))[{{ i18n "title" }}] \
+  #text(size: 18pt, weight: "bold", fill: rgb("#0f172a"))[#esc({{ i18n "title" | jsonify }})] \
   #v(-2pt)
-  #text(size: 10.5pt, weight: "bold", fill: rgb("#2563eb"))[{{ default (i18n "job_title") .job_title }}] \
+  #text(size: 10.5pt, weight: "bold", fill: rgb("#2563eb"))[#esc({{ default (i18n "job_title") .job_title | jsonify }})] \
   #v(2pt)
   #text(size: 8.5pt, fill: rgb("#475569"))[
     {{- range $i, $c := .contact_links -}}
       {{- if $i }} #text(fill: rgb("#94a3b8"))[•] {{ end -}}
-      #link("{{ $c.url }}")[{{ default $c.name $c.label }}]
+      #link({{ $c.url | jsonify }})[#esc({{ default $c.name $c.label | jsonify }})]
     {{- end }}
-    #text(fill: rgb("#94a3b8"))[•] {{ default (i18n "location") .location }}
+    #text(fill: rgb("#94a3b8"))[•] #esc({{ default (i18n "location") .location | jsonify }})
   ]
 ]
 
@@ -37,7 +48,7 @@
 #v(4pt)
 
 {{ with .bio }}
-#text(size: 8.8pt, fill: rgb("#334155"))[{{ . }}]
+#text(size: 8.8pt, fill: rgb("#334155"))[#esc({{ . | jsonify }})]
 #v(2pt)
 #line(length: 100%, stroke: (dash: "dashed", thickness: 0.5pt, paint: rgb("#cbd5e1")))
 #v(4pt)
@@ -53,33 +64,33 @@
 }
 
 {{ with .education }}
-#section-title("{{ i18n "education" }}")
+#section-title(#esc({{ i18n "education" | jsonify }}))
 {{ range . }}
 #block(width: 100%, breakable: false)[
   #grid(
     columns: (1fr, auto),
-    [*{{ .degree }}*],
-    [#text(size: 8.2pt, fill: rgb("#64748b"))[{{ .grade }}]]
+    [*#esc({{ .degree | jsonify }})*],
+    [#text(size: 8.2pt, fill: rgb("#64748b"))[#esc({{ .grade | jsonify }})]]
   )
-  #text(size: 8.8pt)[{{ .institution }} — *{{ .honors }}*]
-  {{ with .leadership }}\ #text(size: 8.5pt, fill: rgb("#475569"))[{{ . }}]{{ end }}
+  #text(size: 8.8pt)[#esc({{ .institution | jsonify }}) — *#esc({{ .honors | jsonify }})*]
+  {{ with .leadership }}\ #text(size: 8.5pt, fill: rgb("#475569"))[#esc({{ . | jsonify }})]{{ end }}
 ]
 #v(4pt)
 {{ end }}
 {{ end }}
 
 {{ with .experience }}
-#section-title("{{ i18n "experience" }}")
+#section-title(#esc({{ i18n "experience" | jsonify }}))
 {{ range . }}
 #block(width: 100%, breakable: false)[
   #grid(
     columns: (1fr, auto),
-    [*{{ .role }}*],
-    [#text(size: 8.2pt, fill: rgb("#64748b"))[{{ .period }}]]
+    [*#esc({{ .role | jsonify }})*],
+    [#text(size: 8.2pt, fill: rgb("#64748b"))[#esc({{ .period | jsonify }})]]
   )
-  #text(size: 8.8pt)[*{{ .organization }}* {{ with .team }}#text(fill: rgb("#64748b"))[({{ . }})]{{ end }}]
+  #text(size: 8.8pt)[*#esc({{ .organization | jsonify }})* {{ with .team }}#text(fill: rgb("#64748b"))[(#esc({{ . | jsonify }}))]{{ end }}]
   {{ range .highlights }}
-  - {{ . }}
+  - #esc({{ . | jsonify }})
   {{ end }}
 ]
 #v(4pt)
@@ -87,39 +98,39 @@
 {{ end }}
 
 {{ with .skills }}
-#section-title("{{ i18n "skills" }}")
+#section-title(#esc({{ i18n "skills" | jsonify }}))
 #block(width: 100%, breakable: false)[
   {{ range . }}
-  *{{ .category }}:* #text(fill: rgb("#475569"))[{{ delimit .items " • " }}] \
+  *#esc({{ .category | jsonify }}):* #text(fill: rgb("#475569"))[#esc({{ delimit .items " • " | jsonify }})] \
   {{ end }}
 ]
 {{ end }}
 
 {{ with .projects }}
-#section-title("{{ i18n "projects" }}")
+#section-title(#esc({{ i18n "projects" | jsonify }}))
 {{ range . }}
 #block(width: 100%, breakable: false)[
   #grid(
     columns: (1fr, auto),
-    [*#link("{{ .url }}")[{{ .name }}]*],
-    [{{ with .tag }}#text(fill: rgb("#2563eb"), weight: "bold", size: 8.2pt)[{{ . }}]{{ end }}]
+    [*#link({{ .url | jsonify }})[#esc({{ .name | jsonify }})]*],
+    [{{ with .tag }}#text(fill: rgb("#2563eb"), weight: "bold", size: 8.2pt)[#esc({{ . | jsonify }})]{{ end }}]
   )
-  #text(size: 8.8pt, fill: rgb("#475569"))[{{ .desc }}]
+  #text(size: 8.8pt, fill: rgb("#475569"))[#esc({{ .desc | jsonify }})]
 ]
 #v(3pt)
 {{ end }}
 {{ end }}
 
 {{ with .contributions }}
-#section-title("{{ i18n "contributions" }}")
+#section-title(#esc({{ i18n "contributions" | jsonify }}))
 {{ range . }}
 #block(width: 100%, breakable: false)[
   #grid(
     columns: (1fr, auto),
-    [*#link("{{ .contribution_url | default .project_url }}")[{{ .project }}]*],
-    [{{ with .tag }}#text(fill: rgb("#2563eb"), weight: "bold", size: 8.2pt)[{{ . }}]{{ end }}]
+    [*#link({{ .contribution_url | default .project_url | jsonify }})[#esc({{ .project | jsonify }})]*],
+    [{{ with .tag }}#text(fill: rgb("#2563eb"), weight: "bold", size: 8.2pt)[#esc({{ . | jsonify }})]{{ end }}]
   )
-  #text(size: 8.8pt, fill: rgb("#475569"))[{{ .desc }}]
+  #text(size: 8.8pt, fill: rgb("#475569"))[#esc({{ .desc | jsonify }})]
 ]
 #v(3pt)
 {{ end }}
@@ -129,7 +140,7 @@
 #v(8pt)
 #line(length: 100%, stroke: (dash: "dashed", thickness: 0.5pt, paint: rgb("#cbd5e1")))
 #v(2pt)
-#text(size: 7.5pt, fill: rgb("#64748b"))[{{ . }}]
+#text(size: 7.5pt, fill: rgb("#64748b"))[#esc({{ . | jsonify }})]
 {{ end }}
 
 {{- end -}}
