@@ -49,14 +49,17 @@ jobs:
 
       - name: Compile Typst to PDF
         run: |
-          # 1. Compile English PDF
+          # 1. Verify that Typst finds Cairo in static/fonts
+          typst fonts --font-path static/fonts
+
+          # 2. Compile English PDF
           if [ -f public/resume.typ ]; then
-            typst compile --font-path fonts public/resume.typ public/resume.pdf
+            typst compile --font-path static/fonts public/resume.typ public/resume.pdf
           fi
 
-          # 2. Compile Arabic PDF
+          # 3. Compile Arabic PDF
           if [ -f public/ar/resume.typ ]; then
-            typst compile --font-path fonts public/ar/resume.typ public/ar/resume.pdf
+            typst compile --font-path static/fonts public/ar/resume.typ public/ar/resume.pdf
           fi
 
       - name: Upload artifact
